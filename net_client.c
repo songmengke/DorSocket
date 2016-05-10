@@ -7,7 +7,7 @@
 #include<string.h>
 #include<netinet/in.h>
 #include<arpa/inet.h>
-int main()
+int main(int argc,char **argv)
 {
 	int recv_fd;
 	int res;
@@ -33,20 +33,15 @@ int main()
 		exit(1);
 	}
 	
-	recv(recv_fd,recv_buf,100,0);
-	printf("get message : %s\n",recv_buf);
-	while(1)
+	if(strlen(argv[1])>0)
 	{
-		scanf("%s",send_buf);
-		if(strlen(send_buf)>0)
-		{
-			res=send(recv_fd,send_buf,100,0);
-			printf("发送: %s\n",send_buf);
-		}
-		else
-		{
-			perror("输入为空,请重新输入...\n");
-		}
+		res=send(recv_fd,argv[1],6,0);
+		printf("发送: %s\n",send_buf);
 	}
+	else
+	{
+		perror("输入为空,请重新输入...\n");
+	}
+	
 	close(recv_fd);
 }
