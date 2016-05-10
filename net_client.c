@@ -36,7 +36,7 @@ int main(int argc,char **argv)
 	if(strlen(argv[1])>0)
 	{
 		res=send(recv_fd,argv[1],6,0);
-		printf("发送: %s\n",send_buf);
+		printf("发送: %s\n",argv[1]);
 	}
 	else
 	{
