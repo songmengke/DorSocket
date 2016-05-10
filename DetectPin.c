@@ -9,12 +9,12 @@ int main()
 	{
 		if(digitalRead(PIN))
 		{
-			delay(100);
-			printf("door open\n");
+			delay(200);
+			system("/home/songmengke/socket/client 010111");
 		}
 		else
 		{
-			delay(100);
+			delay(200);
 			printf("door close\n");
 		}
 	}
